@@ -1,0 +1,3 @@
+[submodule "music-genre-classification"]
+	path = music-genre-classification
+	url = git@github.com:syKevinPeng/music-genre-classification.git

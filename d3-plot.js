@@ -1,19 +1,20 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm"
 
-
+var windowWidth= window.innerWidth;
+var windowHeight = window.innerHeight;
 // Set up scatter plot dimensions
-var margin = { top: 20, right: 20, bottom: 30, left: 40 },
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom
+var viz1_margin = { top: windowHeight/8, right: 20, bottom: windowHeight/8, left: windowWidth/3 },
+    width =windowWidth - viz1_margin.left - viz1_margin.right,
+    height = windowHeight - viz1_margin.top - viz1_margin.bottom
 
 
 // Create line plot
-var svg = d3.select("#my_plot")
+var svg = d3.select("#viz_1")
     .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width + viz1_margin.left + viz1_margin.right)
+    .attr("height", height + viz1_margin.top + viz1_margin.bottom)
     .append("g") // Add group
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .attr("transform", "translate(" + viz1_margin.left + "," + viz1_margin.top + ")")
 
 
 

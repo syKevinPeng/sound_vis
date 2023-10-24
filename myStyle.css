@@ -1,0 +1,18 @@
+/* create a css format for the introductory page: The title should be in the center of the page. h1 should be large and bold */
+.intro {
+    text-align: center;
+}
+.intro h1 {    
+    font-size: 70px;
+    font-weight: bold;
+    color: #000000;
+}
+.intro h2{
+    font-size: 20px;
+    font-weight: bold;
+    color: #b0b0b0;
+}
+.intro h4{
+    font-size: 15px;
+    color: #b0b0b0;
+}

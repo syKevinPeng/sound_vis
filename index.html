@@ -4,34 +4,30 @@
     <head>
         <meta charset="utf-8">
         <title>Sound Visualization</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+        <script type="module" src="d3-plot.js"></script>
+        <script type="text/javascript">
+            var myFullpage = new fullpage('#fullpage', {
+                sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+                anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+                menu: '#menu',
+                slidesNavigation: true,
+                lazyLoad: true,
+                credits: {enabled: false},
+                licenseKey: 'gplv3-license'
+    });
+        </script> 
     </head>
 
     <body>
-        <div id="my_plot"></div>
-        <!-- <script type="module" src="plot.js"></script> -->
-        <script type="module" src="d3-plot.js"></script>
-
-
-        <!DOCTYPE html>
-        <html>
-
-        <head>
-            <meta charset="utf-8">
-            <title>Music Visualization</title>
-            <link rel="stylesheet" href="style.css">
-        </head>
-
-        <body>
-
-            <footer>
-                <p>&copy; 2021 Music Visualization</p>
-            </footer>
-
-            <script src="https://d3js.org/d3.v7.min.js"></script>
-            <script src="app.js"></script>
-        </body>
-
-        </html>
+        <div id="fullpage">
+            <div class="section">Visualization 1</div>
+                <div id="my_plot"></div>
+            <div class="section">Some section</div>
+            <div class="section">Some section</div>
+            <div class="section">Some section</div>
+            <div class="section">Some section</div>
+        </div>
 
     </body>
 

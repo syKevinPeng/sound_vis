@@ -1,11 +1,11 @@
 import { render } from "preact";
 import { LocationProvider, Router, Route } from "preact-iso";
 
-import { Header } from "./components/Header.jsx";
-import { NotFound } from "./pages/_404.jsx";
+import  Header  from "./components/Header";
+import { NotFound } from "./pages/_404";
 import "./style.css";
 import Title from "./pages/title";
-import Intro from "./pages/intro";
+import Intro from "./pages/intro/intro";
 import Task1_0 from "./pages/task1/overview";
 import Task1_1 from "./pages/task1/task1";
 import Task1_2 from "./pages/task1/task2";
@@ -21,7 +21,7 @@ import Task3_1 from "./pages/task3/task1";
 export function App() {
   return (
     <LocationProvider>
-      {/* <Header /> */}
+      <Header />
       {/* <main> */}
       <Router>
         <Route path="/" component={Title} />

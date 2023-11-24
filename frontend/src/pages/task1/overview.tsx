@@ -1,7 +1,7 @@
 import Progress from "@/components/Progress";
 
 export default () => (
-  <div>
+  <div class='content'>
     <div class="progress-div">
       <Progress progress="Task1_0" />
     </div>

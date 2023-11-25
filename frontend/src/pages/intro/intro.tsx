@@ -1,12 +1,35 @@
 import { useLocation } from "preact-iso";
 import "./intro.css";
 import Progress from "@/components/Progress";
+import fullpage from "fullpage.js/dist/fullpage.min.js";
+import { useEffect, useRef } from "preact/hooks";
 
 export default () => {
   const location = useLocation();
+  const fpElem = useRef<HTMLDivElement>();
+
+  useEffect(() => {
+    console.log("fpElem", fpElem.current);
+
+    const fp = new fullpage(fpElem.current, {
+      // // Navigation
+      // menu: '#menu',
+      // lockAnchors: false,
+      // anchors:['firstPage', 'secondPage'],
+      // navigation: false,
+      // navigationPosition: 'right',
+      // navigationTooltips: ['firstSlide', 'secondSlide'],
+      // showActiveTooltip: false,
+      // slidesNavigation: false,
+      // slidesNavPosition: 'bottom',
+
+      scrollHorizontally: true,
+      licenseKey: "gplv3-license",
+    });
+  }, [fpElem.current]);
 
   return (
-    <div class="content">
+    <div ref={fpElem} class="content">
       <div class="progress-div">
         <Progress progress="Intro" />
       </div>
@@ -27,7 +50,7 @@ export default () => {
               Music Vs. Nosie
             </div>
             <div onClick={() => location.route("/task2/overview")}>
-              Valence Vs. arousal 
+              Valence Vs. Arousal
             </div>
             <div onClick={() => location.route("/task3/overview")}>
               Instrumental music

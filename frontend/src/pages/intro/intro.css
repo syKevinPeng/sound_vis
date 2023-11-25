@@ -8,8 +8,8 @@
   margin: 0.5rem;
   padding: 0.5rem;
 
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   text-align: center;
 
   border: 0.1rem solid blue;

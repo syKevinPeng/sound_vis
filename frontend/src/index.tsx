@@ -17,6 +17,7 @@ import Task2_1 from "./pages/task2/task1";
 import Task2_2 from "./pages/task2/task2";
 import Task3_0 from "./pages/task3/overview";
 import Task3_1 from "./pages/task3/task1";
+import { allProgress } from "./components/Progress";
 // import Task3_2 from "./pages/task3/task2";
 // import Task3_3 from "./pages/task3/task3";
 
@@ -29,16 +30,13 @@ export function App() {
       <div className="section">
         <Intro
           to1={() => {
-            fullpageApi.moveSectionDown();
+            fullpageApi.moveTo(allProgress.Task1_0.sectionNum);
           }}
           to2={() => {
-            fullpageApi.moveSectionDown();
-            fullpageApi.moveSectionDown();
+            fullpageApi.moveTo(allProgress.Task2_0.sectionNum);
           }}
           to3={() => {
-            fullpageApi.moveSectionDown();
-            fullpageApi.moveSectionDown();
-            fullpageApi.moveSectionDown();
+            fullpageApi.moveTo(allProgress.Task3_0.sectionNum);
           }}
         />
       </div>
@@ -80,6 +78,9 @@ export function App() {
     <ReactFullpage
       //fullpage options
       licenseKey="gplv3-license"
+      loopHorizontal={false}
+      dragAndMove={true}
+      debug={true}
       render={({ state, fullpageApi }) => (
         <ReactFullpage.Wrapper>
           {sections(state, fullpageApi)}

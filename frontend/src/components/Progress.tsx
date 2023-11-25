@@ -1,18 +1,32 @@
 import { useLocation } from "preact-iso";
 
-const allProgress = {
-  Title: { text: "Title", link: "/" },
-  Intro: { text: "Intro", link: "/intro" },
-  Task1_0: { text: "Task1_0", link: "/task1/overview" },
-  Task1_1: { text: "Task1_1", link: "/task1/1" },
-  Task1_2: { text: "Task1_2", link: "/task1/2" },
-  Task1_3: { text: "Task1_3", link: "/task1/3" },
-  Task2_0: { text: "Task2_0", link: "/task2/overview" },
-  Task2_1: { text: "Task2_1", link: "/task2/1" },
-  Task2_2: { text: "Task2_2", link: "/task2/2" },
+let sectionNum = 1;
+
+export const allProgress = {
+  Title: { text: "Title", link: "/", sectionNum: sectionNum++ },
+  Intro: { text: "Intro", link: "/intro", sectionNum: sectionNum++ },
+  Task1_0: {
+    text: "Task1_0",
+    link: "/task1/overview",
+    sectionNum: sectionNum++,
+  },
+  Task1_1: { text: "Task1_1", link: "/task1/1", sectionNum: sectionNum },
+  Task1_2: { text: "Task1_2", link: "/task1/2", sectionNum: sectionNum },
+  Task1_3: { text: "Task1_3", link: "/task1/3", sectionNum: sectionNum },
+  Task2_0: {
+    text: "Task2_0",
+    link: "/task2/overview",
+    sectionNum: sectionNum++,
+  },
+  Task2_1: { text: "Task2_1", link: "/task2/1", sectionNum: sectionNum },
+  Task2_2: { text: "Task2_2", link: "/task2/2", sectionNum: sectionNum },
   // Task2_3: "Task2_3",
-  Task3_0: { text: "Task3_0", link: "/task3/overview" },
-  Task3_1: { text: "Task3_1", link: "/task3/1" },
+  Task3_0: {
+    text: "Task3_0",
+    link: "/task3/overview",
+    sectionNum: sectionNum++,
+  },
+  Task3_1: { text: "Task3_1", link: "/task3/1", sectionNum: sectionNum },
   // Task3_2: "Task3_2",
   // Task3_3: "Task3_3",
 };

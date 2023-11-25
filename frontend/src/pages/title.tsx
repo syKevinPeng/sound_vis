@@ -12,6 +12,8 @@ export default () => (
         width: "100%",
         height: "100%",
         position: "absolute",
+        top: 0,
+        left: 0,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -28,7 +30,7 @@ export default () => (
       style={{
         width: "100%",
         height: "100%",
-        position: "relative",
+        position: "absolute",
         top: 0,
         left: 0,
         objectFit: "cover",

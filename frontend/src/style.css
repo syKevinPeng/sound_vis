@@ -86,7 +86,7 @@ main {
 
 */
 
-html{
+html {
   height: 100%;
 }
 
@@ -102,6 +102,8 @@ header {
 }
 
 .content {
+  height: 100%;
+
   flex-grow: 1;
   display: flex;
 }
@@ -112,7 +114,7 @@ header {
 }
 
 .content-div {
-  flex: 2;
+  flex: 3;
 
   margin: 2rem 0;
 
@@ -120,6 +122,10 @@ header {
   flex-direction: column;
   justify-content: space-evenly;
 
+  /* height: 100%; */
+  /* overflow-y: scroll; */
+}
+
+.fp-overflow {
   height: 100%;
-  overflow-y: scroll;
 }

@@ -1,11 +1,11 @@
 import { render } from "preact";
 import { LocationProvider, Router, Route } from "preact-iso";
-
-import "fullpage.js/dist/fullpage.min.css";
+import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 
 import Header from "./components/Header";
 import { NotFound } from "./pages/_404";
 import "./style.css";
+
 import Title from "./pages/title";
 import Intro from "./pages/intro/intro";
 import Task1_0 from "./pages/task1/overview";
@@ -21,29 +21,94 @@ import Task3_1 from "./pages/task3/task1";
 // import Task3_3 from "./pages/task3/task3";
 
 export function App() {
+  const sections = (state: any, fullpageApi: fullpageApi) => (
+    <>
+      <div className="section">
+        <Title />
+      </div>
+      <div className="section">
+        <Intro
+          to1={() => {
+            fullpageApi.moveSectionDown();
+          }}
+          to2={() => {
+            fullpageApi.moveSectionDown();
+            fullpageApi.moveSectionDown();
+          }}
+          to3={() => {
+            fullpageApi.moveSectionDown();
+            fullpageApi.moveSectionDown();
+            fullpageApi.moveSectionDown();
+          }}
+        />
+      </div>
+      <div className="section">
+        {[Task1_0, Task1_1, Task1_2, Task1_3].map((X, i) => (
+          <div className="slide">
+            <X />
+          </div>
+        ))}
+      </div>
+      <div className="section">
+        {[Task2_0, Task2_1, Task2_2].map((X) => (
+          <div className="slide">
+            <X />
+          </div>
+        ))}
+      </div>
+      <div className="section">
+        {[Task3_0, Task3_1].map((X) => (
+          <div className="slide">
+            <X />
+          </div>
+        ))}
+      </div>
+      {/* 
+            <div className="section">
+              <p>Section 1 (welcome to fullpage.js)</p>
+              <button onClick={() => fullpageApi.moveSectionDown()}>
+                Click me to move down
+              </button>
+            </div>
+            <div className="section">
+              <p>Section 2</p>
+            </div> */}
+    </>
+  );
+
   return (
-    <LocationProvider>
-      {/* <Header /> */}
-      {/* <main> */}
-      <Router>
-        <Route path="/" component={Title} />
-        <Route path="/title" component={Title} />
-        <Route path="/intro" component={Intro} />
-        <Route path="/task1/overview" component={Task1_0} />
-        <Route path="/task1/1" component={Task1_1} />
-        <Route path="/task1/2" component={Task1_2} />
-        <Route path="/task1/3" component={Task1_3} />
-        <Route path="/task2/overview" component={Task2_0} />
-        <Route path="/task2/1" component={Task2_1} />
-        <Route path="/task2/2" component={Task2_2} />
-        <Route path="/task3/overview" component={Task3_0} />
-        <Route path="/task3/1" component={Task3_1} />
-        {/* <Route path="/task3/2" component={Task3_2} />
-        <Route path="/task3/3" component={Task3_3} /> */}
-        <Route default component={NotFound} />
-      </Router>
-      {/* </main> */}
-    </LocationProvider>
+    <ReactFullpage
+      //fullpage options
+      licenseKey="gplv3-license"
+      render={({ state, fullpageApi }) => (
+        <ReactFullpage.Wrapper>
+          {sections(state, fullpageApi)}
+        </ReactFullpage.Wrapper>
+      )}
+    />
+
+    // <LocationProvider>
+    //   {/* <Header /> */}
+    //   {/* <main> */}
+    //   <Router>
+    //     <Route path="/" component={Title} />
+    //     <Route path="/title" component={Title} />
+    //     <Route path="/intro" component={Intro} />
+    //     <Route path="/task1/overview" component={Task1_0} />
+    //     <Route path="/task1/1" component={Task1_1} />
+    //     <Route path="/task1/2" component={Task1_2} />
+    //     <Route path="/task1/3" component={Task1_3} />
+    //     <Route path="/task2/overview" component={Task2_0} />
+    //     <Route path="/task2/1" component={Task2_1} />
+    //     <Route path="/task2/2" component={Task2_2} />
+    //     <Route path="/task3/overview" component={Task3_0} />
+    //     <Route path="/task3/1" component={Task3_1} />
+    //     {/* <Route path="/task3/2" component={Task3_2} />
+    //     <Route path="/task3/3" component={Task3_3} /> */}
+    //     <Route default component={NotFound} />
+    //   </Router>
+    //   {/* </main> */}
+    // </LocationProvider>
   );
 }
 

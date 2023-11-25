@@ -1,35 +1,20 @@
-import { useLocation } from "preact-iso";
+// import { useLocation } from "preact-iso";
 import "./intro.css";
 import Progress from "@/components/Progress";
-import fullpage from "fullpage.js/dist/fullpage.min.js";
-import { useEffect, useRef } from "preact/hooks";
 
-export default () => {
-  const location = useLocation();
-  const fpElem = useRef<HTMLDivElement>();
-
-  useEffect(() => {
-    console.log("fpElem", fpElem.current);
-
-    const fp = new fullpage(fpElem.current, {
-      // // Navigation
-      // menu: '#menu',
-      // lockAnchors: false,
-      // anchors:['firstPage', 'secondPage'],
-      // navigation: false,
-      // navigationPosition: 'right',
-      // navigationTooltips: ['firstSlide', 'secondSlide'],
-      // showActiveTooltip: false,
-      // slidesNavigation: false,
-      // slidesNavPosition: 'bottom',
-
-      scrollHorizontally: true,
-      licenseKey: "gplv3-license",
-    });
-  }, [fpElem.current]);
+export default ({
+  to1,
+  to2,
+  to3,
+}: {
+  to1: () => void;
+  to2: () => void;
+  to3: () => void;
+}) => {
+  // const location = useLocation();
 
   return (
-    <div ref={fpElem} class="content">
+    <div class="content">
       <div class="progress-div">
         <Progress progress="Intro" />
       </div>
@@ -46,15 +31,9 @@ export default () => {
         <p>
           At the heart of our inquiry lies three pivotal tasks:
           <div class="divide-3">
-            <div onClick={() => location.route("/task1/overview")}>
-              Music Vs. Nosie
-            </div>
-            <div onClick={() => location.route("/task2/overview")}>
-              Valence Vs. Arousal
-            </div>
-            <div onClick={() => location.route("/task3/overview")}>
-              Instrumental music
-            </div>
+            <div onClick={to1}>Music Vs. Nosie</div>
+            <div onClick={to2}>Valence Vs. Arousal</div>
+            <div onClick={to3}>Instrumental music</div>
           </div>
         </p>
         <p>

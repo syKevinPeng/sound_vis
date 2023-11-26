@@ -6,7 +6,7 @@ See https://git-lfs.com/
 
 ### Pull latest commit
 ```sh
-git lfs pull
+git pull && git lfs pull
 ```
 
 ### Compile frontend (if didn't already)

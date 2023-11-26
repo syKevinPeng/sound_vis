@@ -4,14 +4,19 @@
 ### Install Git LFS
 See https://git-lfs.com/
 
-### Compile frontend (if didn't already)
+### Pull latest commit
+```sh
+git lfs pull
 ```
+
+### Compile frontend (if didn't already)
+```sh
 cd frontend
 npm install
 npm run build
 ```
 
 ### Run backend
-```
+```sh
 python3 app.py
 ```

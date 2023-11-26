@@ -1,4 +1,4 @@
-import video from "@/assets/pexels_videos_1481903 (1080p).mp4";
+import video from "@/assets/title_vod.mp4";
 
 export default () => (
   <div
@@ -17,7 +17,7 @@ export default () => (
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        backgroundColor: "rgba(0,0,0,0.7)",
+        backgroundColor: "rgba(0,0,0,0.5)",
       }}
     >
       <div />

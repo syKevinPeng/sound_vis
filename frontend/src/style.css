@@ -3,7 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: #222;
+  --light-color: #222;
+  color: var(--light-color);
   background-color: #ffffff;
 
   font-synthesis: none;
@@ -128,4 +129,8 @@ header {
 
 .fp-overflow {
   height: 100%;
+}
+
+.color-light > * {
+  color: var(--light-color);
 }

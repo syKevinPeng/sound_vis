@@ -40,27 +40,21 @@ export function App() {
           }}
         />
       </div>
-      <div className="section">
-        {[Task1_0, Task1_1, Task1_2, Task1_3].map((X, i) => (
-          <div className="slide">
-            <X />
-          </div>
-        ))}
-      </div>
-      <div className="section">
-        {[Task2_0, Task2_1, Task2_2].map((X) => (
-          <div className="slide">
-            <X />
-          </div>
-        ))}
-      </div>
-      <div className="section">
-        {[Task3_0, Task3_1].map((X) => (
-          <div className="slide">
-            <X />
-          </div>
-        ))}
-      </div>
+      {[Task1_0, Task1_1, Task1_2, Task1_3].map((X, i) => (
+        <div className="section">
+          <X />
+        </div>
+      ))}
+      {[Task2_0, Task2_1, Task2_2].map((X) => (
+        <div className="section">
+          <X />
+        </div>
+      ))}
+      {[Task3_0, Task3_1].map((X) => (
+        <div className="section">
+          <X />
+        </div>
+      ))}
       {/* 
             <div className="section">
               <p>Section 1 (welcome to fullpage.js)</p>

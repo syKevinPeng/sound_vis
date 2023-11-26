@@ -11,7 +11,7 @@ export default memo(() => {
   useEffect(() => {
     // console.log("data", data);
     if (data == null) return;
-
+    // PLOT CODE
     const plot = Plot.plot({
       y: { grid: true },
       // color: { scheme: "burd" },
@@ -21,7 +21,7 @@ export default memo(() => {
     d3Elem.current.replaceChildren(plot);
     return () => plot.remove();
   }, [data, d3Elem.current]);
-
+  // getting data from backend. Right now, just use a placeholder
   useEffect(() => {
     fetch("/random/1000")
       .then((r) => r.json())

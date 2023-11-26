@@ -15,8 +15,9 @@ export default memo(() => {
     const plot = Plot.plot({
       y: { grid: true },
       // color: { scheme: "burd" },
-      marks: [Plot.ruleY([0]), Plot.line(data, { strokeWidth :5})],
+      marks: [Plot.ruleY([0]), Plot.line(data, { strokeWidth: 5 })],
     });
+    plot.setAttribute("height", '300');
     d3Elem.current.replaceChildren(plot);
     return () => plot.remove();
   }, [data, d3Elem.current]);
@@ -59,7 +60,7 @@ export default memo(() => {
           and undesired, generally lacking the intentionality and organization
           inherent in music.
         </p>
-        <div class='color-light' ref={d3Elem} />
+        <div class="color-light" ref={d3Elem} />
         <p>
           Yet, the demarcation between music and noise is not absolute; it is
           influenced by individual and cultural subjectivities. The patter of

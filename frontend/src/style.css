@@ -3,9 +3,10 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --light-color: #222;
-  color: var(--light-color);
-  background-color: #ffffff;
+  --dark-text-color: #222;
+  --light-text-color: #ccc;
+  color: var(--light-text-color);
+  background-color: #1a1a1a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -64,12 +65,12 @@ main {
 	}
 } */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     color: #ccc;
     background-color: #1a1a1a;
   }
-}
+} */
 
 /* 
 
@@ -132,5 +133,5 @@ header {
 }
 
 .color-light > * {
-  color: var(--light-color);
+  color: var(--dark-text-color);
 }

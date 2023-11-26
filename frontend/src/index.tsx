@@ -74,7 +74,7 @@ export function App() {
       licenseKey="gplv3-license"
       loopHorizontal={false}
       dragAndMove={true}
-      debug={true}
+      // debug={true}
       render={({ state, fullpageApi }) => (
         <ReactFullpage.Wrapper>
           {sections(state, fullpageApi)}

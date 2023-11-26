@@ -1,6 +1,7 @@
 import Progress from "@/components/Progress";
+import { memo } from "preact/compat";
 
-export default () => (
+export default memo(() => (
   <div class="content">
     <div class="progress-div">
       <Progress progress="Task2_2" />
@@ -84,4 +85,4 @@ export default () => (
       </p>
     </div>
   </div>
-);
+));

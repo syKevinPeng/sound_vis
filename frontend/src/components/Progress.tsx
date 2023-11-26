@@ -1,4 +1,5 @@
 import { useLocation } from "preact-iso";
+import { memo } from "preact/compat";
 
 let sectionNum = 1;
 
@@ -33,7 +34,7 @@ export const allProgress = {
 
 export type Progress = keyof typeof allProgress;
 
-export default ({ progress }: { progress: Progress }) => {
+export default memo(({ progress }: { progress: Progress }) => {
   const location = useLocation();
   return (
     <div
@@ -61,4 +62,4 @@ export default ({ progress }: { progress: Progress }) => {
       ))}
     </div>
   );
-};
+});

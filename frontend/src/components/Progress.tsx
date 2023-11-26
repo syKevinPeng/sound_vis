@@ -47,18 +47,18 @@ export default memo(({ progress }: { progress: Progress }) => {
       }}
     >
       {Object.entries(allProgress).map(([k, { text, link }]) => (
-        <button
+        <div
           style={{
             ...(k == progress ? { fontSize: "xx-large" } : {}),
             cursor: "pointer",
             backgroundColor: "transparent",
-            border: "none",
+            textAlign: "center",
           }}
           key={k}
           onClick={() => location.route(link)}
         >
           {text}
-        </button>
+        </div>
       ))}
     </div>
   );

@@ -22,5 +22,5 @@ npm run build
 python3 -mvenv .venv
 source .venv/bin/activate
 pip3 install -r requirements.txt
-python3 app.py
+PORT=8080 python3 app.py
 ```

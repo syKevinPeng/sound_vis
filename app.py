@@ -48,6 +48,6 @@ if __name__ == "__main__":
     app.run(
         threaded=True,
         host="0.0.0.0",
-        port=8080,
+        port=int(getenv("PORT", "8080")),
         debug=getenv("DEBUG", "").lower() in ("true", "1"),
     )

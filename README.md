@@ -11,6 +11,7 @@ git pull && git lfs pull
 
 ### Compile frontend
 **very likely not needed since it would have been compiled already**
+**If you modify anything in frontend, you need to recompile**
 ```sh
 cd frontend
 npm install

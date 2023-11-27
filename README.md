@@ -9,7 +9,8 @@ See https://git-lfs.com/
 git pull && git lfs pull
 ```
 
-### Compile frontend (if didn't already)
+### Compile frontend
+**very likely not needed since it would have been compiled already**
 ```sh
 cd frontend
 npm install
@@ -18,5 +19,8 @@ npm run build
 
 ### Run backend
 ```sh
+python3 -mvenv .venv
+source .venv/bin/activate
+pip3 install -r requirements.txt
 python3 app.py
 ```

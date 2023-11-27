@@ -1,3 +1,4 @@
+from os import getenv
 import numpy as np
 from flask import (
     Flask,
@@ -22,11 +23,11 @@ def index():
 
 @app.get("/<path:path>")
 def static_file(path: str):
-    return send_from_directory(".", path)
+    return send_from_directory("./frontend/dist", path)
 
 
 @app.get("/random/1000")
-def random(n: int=1000):
+def random(n: int = 1000):
     arr = np.column_stack((np.arange(n), np.random.rand(n))).tolist()
     return jsonify(arr)
 
@@ -44,7 +45,9 @@ def upload():
 
 
 if __name__ == "__main__":
-    app.run(threaded=True
-        , host='0.0.0.0'
-        #, debug=True
+    app.run(
+        threaded=True,
+        host="0.0.0.0",
+        port=8080,
+        debug=getenv("DEBUG", "").lower() in ("true", "1"),
     )

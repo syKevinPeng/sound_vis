@@ -1,5 +1,6 @@
 import Progress from "@/components/Progress";
 import { memo } from "preact/compat";
+import musicImage from "@/images/chroma.png";
 
 export default memo(() => (
   <div class="content">
@@ -27,6 +28,11 @@ export default memo(() => (
         brighter the color, the more dominant that pitch is in the mix at that
         moment.
       </p>
+      <img
+          src={musicImage}
+          alt="Music Visualization"
+          style={{ width: "800px", height: "300px" }}
+        />
       <h1>Chromagram for Intense Sound:</h1>
       <p>
         Looking at the top chromagram labeled for 'intense sound,' you'll notice

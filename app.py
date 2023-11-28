@@ -1,4 +1,7 @@
+from hashlib import sha384
+from io import BytesIO
 from os import getenv
+from pathlib import Path
 import numpy as np
 from flask import (
     Flask,
@@ -31,6 +34,29 @@ def random(n: int = 1000):
     arr = np.column_stack((np.arange(n), np.random.rand(n))).tolist()
     return jsonify(arr)
 
+def serve_file(path:Path):
+    etag = '"' + sha384(path.read_bytes()).hexdigest() + '"'
+    # print("1", request.headers.get("If-None-Match"))
+    # print("2", etag)
+    if (
+        request.headers.get("If-None-Match", "")
+        .rstrip('"')
+        .startswith(etag.rstrip('"'))  # workaround for Compress middleware
+    ):
+        return Response(status=304)
+    arr3d: np.ndarray = np.load(path)
+
+    res = jsonify(arr3d.tolist())
+    res.headers.set("ETag", etag)
+    return res
+
+@app.get("/sound-feature/<string:type_>")
+def sound_feature(type_:str):
+    return serve_file(Path(__file__).parent / "deep_model" / f"feature_maps_1_2_{type_}.npy")
+
+@app.get("/contrast/<string:type_>")
+def contrast(type_:str):
+    return serve_file(Path(__file__).parent / "deep_model" / f"contrast_{type_}.npy")
 
 @app.post("/upload")
 def upload():

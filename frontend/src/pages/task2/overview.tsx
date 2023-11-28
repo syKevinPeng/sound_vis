@@ -1,5 +1,6 @@
 import Progress from "@/components/Progress";
 import { memo } from "preact/compat";
+import valence from "@/images/valence.jpg";
 
 export default memo(() => (
   <div class="content">
@@ -21,8 +22,17 @@ export default memo(() => (
         at joy or the somber melody that speaks of sorrow. Arousal, on the other
         hand, is the level of energy or intensity within the music; it is the
         silent roar of a crescendo that quickens the heartbeat or the gentle
-        lullaby that soothes the spirit.
+        lullaby that soothes the spirit. The image below shows how valence and
+        arousal can be mapped onto a two-dimensional space, with valence on the
+        horizontal axis and arousal on the vertical axis. This space is divided
+        into four quadrants, each representing a different combination of
+        valence and arousal.
       </p>
+      <img
+          src={valence}
+          alt="Music Visualization"
+          style={{ width: "550px", height: "438px" }}
+        />
       <p>
         This inquiry is not just an academic pursuit but a journey into the
         heart of human experience. It seeks to unravel the threads of melody and

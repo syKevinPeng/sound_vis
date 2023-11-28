@@ -77,7 +77,7 @@ export default () => {
           different frequencies.
         </p>
         <div>
-          <div style={{ float: "right", width: "640px" }}>
+          <div style={{ float: "right", width: "640px", marginLeft: "5vw" }}>
             <div class="color-light sized-plot" ref={d3Elem} />
           </div>
           <p>
@@ -105,16 +105,15 @@ export default () => {
             whether they be positive, like peacefulness, or negative, like
             melancholy.
           </p>
-          <p>
-            This chart serves as a visual symphony, with each color conducting
-            its own emotional score. As we explore the interplay between the
-            spectral spikes of intense music and the soothing curves of calm
-            music, we gain a deeper appreciation of how the spectral contrast in
-            music can paint a complex picture of our emotional landscape,
-            resonating with the depths of our feelings and the peaks of our
-            spirits.
-          </p>
         </div>
+        <p>
+          This chart serves as a visual symphony, with each color conducting its
+          own emotional score. As we explore the interplay between the spectral
+          spikes of intense music and the soothing curves of calm music, we gain
+          a deeper appreciation of how the spectral contrast in music can paint
+          a complex picture of our emotional landscape, resonating with the
+          depths of our feelings and the peaks of our spirits.
+        </p>
       </div>
     </div>
   );

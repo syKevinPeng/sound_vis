@@ -16,6 +16,7 @@ export default () => {
       .flat();
 
     const plot = Plot.plot({
+      title: "Music",
       // y: { grid: true },
       color: {
         scheme: "BuPu",
@@ -52,25 +53,21 @@ export default () => {
       .then(setDataMusic);
   }, [setDataMusic]);
 
-
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
-
-
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
   const d3ElemNoise = useRef<HTMLDivElement>();
   const [dataNoise, setDataNoise] = useState<[number, number][][]>();
@@ -85,6 +82,7 @@ export default () => {
       .flat();
 
     const plot = Plot.plot({
+      title: "Noise",
       // y: { grid: true },
       color: {
         scheme: "BuPu",
@@ -121,22 +119,21 @@ export default () => {
       .then(setDataNoise);
   }, [setDataNoise]);
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
   return (
     <div class="content">
@@ -150,9 +147,12 @@ export default () => {
           representations help us explore the complexity of sounds and how they
           can be analyzed and differentiated by levels of abstraction.
         </p>
-        <div style={{ display: "flex" }}>
-          <div class="color-light" style={{ flex: 1 }} ref={d3ElemMusic} />
-          <div class="color-light" style={{ flex: 1 }} ref={d3ElemNoise} />
+        <div
+          class="color-light"
+          style={{ display: "flex", backgroundColor: "white" }}
+        >
+          <div style={{ flex: 1 }} ref={d3ElemMusic} />
+          <div style={{ flex: 1 }} ref={d3ElemNoise} />
         </div>
         {/* <p>
           Lower Level Feature Comparison: We use a trained neural network to

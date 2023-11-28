@@ -183,12 +183,20 @@ export default memo(() => {
           to convey emotion and aesthetic pleasure. Noise, conversely, is often
           characterized as sound without deliberate structure, sometimes erratic
           and undesired, generally lacking the intentionality and organization
-          inherent in music.
+          inherent in music. Below is a visualization of a music file, with the
+          x-axis representing time and the y-axis representing amplitude. This 
+          simple visualization allows you to understand the structure of the music,
+           such as the climax of the song.
         </p>
         <div style="display:flex; flex-direction:column">
           <svg ref={svgRef} width="960" height="500"></svg>
           <input type="range" id="timeSlider" min="0" max="100" value="100" />
         </div>
+        <p>
+          For noises, we wouldn't see such a clear structure. For white noise,
+          the amplitude is constant, and for pink noise, the amplitude decreases
+          as the frequency increases.
+        </p>
         <p>
           Yet, the demarcation between music and noise is not absolute; it is
           influenced by individual and cultural subjectivities. The patter of

@@ -173,53 +173,42 @@ useEffect(() => {    d3.csv(noiseFile).then(function (data) {
         <div id="noise"></div>
         </div>
       </div>
-      <h1>Noise Visualization:</h1>
-      The graph labeled 'Noise' presents a wild, almost erratic form, with
-      spikes that jut out unpredictably in all directions. This visual chaos is
-      emblematic of noise's nature: a jumble of frequencies and amplitudes
-      without any regularity or rhythm. The spikes represent bursts of sound
-      that do not correlate over time, illustrating the disordered essence of
-      noise. There's no discernible pattern or repetition, mirroring the
-      acoustic experience of noise—where the sound is random, and no specific
-      frequency or rhythm dominates.
       <h1>Music Visualization:</h1>
-      On the other side, the 'Music' graph shows a form that is also complex but
-      less chaotic. Here, we can observe protrusions that seem to echo each
-      other, suggesting a pattern or motif that repeats over time. These
-      repeating structures reflect the rhythmic and melodic elements of music,
-      where certain notes or sequences recur at regular intervals, creating the
-      harmonious structure we associate with musical compositions. Despite the
-      complexity, there is an underlying order evident in the repetition and
-      symmetry of the protrusions, much like the repeating chorus or verse in a
-      song.
+      The 'Music' graph presents a wild, almost erratic form, with
+      dots that just unpredictable at any timestamp. This visual chaos is
+      natural for complex music: a jumble of frequencies and amplitudes
+      without any regularity. The scattered dots represent bursts of sound
+      that do not correlate with sounds from seconds earlier, illustrating the disordered essence of
+      music from a micro perspective. There's no discernible pattern or repetition in short duration, 
+      mirroring the acoustic experience of complex music structure where vocals and instruments blend together.
+      <h1>Noise Visualization:</h1>
+      On the other side, the graph labeled 'Noise' represents the mapping in a 3D space of the
+      audio data of white noise. Here, we can observe high level of consistency in each time "strip", 
+      suggesting a repetitive pattern at every timestamp. These
+      repeating structures reflect the equal intensity at different frequencies,
+      creating the harmonious structure we associate with white noise. Despite the
+      simplicity, there is an underlying order evident in the repetitions, 
+      much like the frequencies across the spectrum of audible sound in equal measure.
+     
       <h1>Patterns Differentiating Music from Noise:</h1>
       From these visualizations, one can discern:
       <ol>
         <li>
-          **Repetition in Music**: In the music graph, the echoing shapes hint
-          at the repetitive nature of music, where certain elements are
-          revisited throughout a piece, providing a sense of order and
-          predictability.
+          **Repetition in White Noise**: In the noise graph, the echoing shapes hint
+          at the repetitive nature of white noise, where certain elements are
+          revisited throughout a piece, providing a sense of predictability.
         </li>
         <li>
-          **Chaos in Noise**: The noise graph lacks such repetition, with its
+          **Chaos in Music**: The music graph lacks such repetition, with its
           shapes not repeating or mirroring each other, highlighting the
-          unpredictable nature of noise.
+          unpredictable nature.
         </li>
         <li>
-          **Complexity and Structure**: While both graphs exhibit complex forms,
-          music's complexity has a structure—it's a complex order. Noise, on the
-          other hand, displays complex disorder.
-        </li>
-        <li>
-          **Dimensionality**: Music fills the space with a patterned growth,
+          **Dimensionality**: Music fills the space more uniformly, with dots scattered
           suggesting the layers and dimensions of harmonics and rhythms. Noise
-          fills the space more uniformly, lacking layered depth.
+          fills the space scattered, lacking layered depth.
         </li>
       </ol>
-      TODO: In this interactive design, users could rotate the graphs, zoom in
-      and out, and perhaps even watch the shapes evolve over time with a
-      playback feature.
     </div>
   </div>
   );

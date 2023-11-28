@@ -59,8 +59,8 @@ export default () => {
       </div>
       <div class="content-div">
         <p>
-          In this visualization, we are presented with two sets of images that
-          compare 'Lower Level' and 'Higher Level' features of music and noise.
+          In this visualization, we are presented with one gsets of images that
+          compare 'Lower Level' features of music and noise.
           These representations help us explore the complexity of sounds and how
           they can be analyzed and differentiated by levels of abstraction.
         </p>

@@ -1,6 +1,5 @@
-import { render } from "preact";
-import { LocationProvider, Router, Route } from "preact-iso";
-import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
+import { render } from "preact"; 
+import ReactFullpage, { fullpageApi as FullpageApi } from "@fullpage/react-fullpage";
 
 import Header from "./components/Header";
 import { NotFound } from "./pages/_404";
@@ -18,11 +17,15 @@ import Task2_2 from "./pages/task2/task2";
 import Task3_0 from "./pages/task3/overview";
 import Task3_1 from "./pages/task3/task1";
 import { allProgress } from "./components/Progress";
+import { signal } from "@preact/signals";
 // import Task3_2 from "./pages/task3/task2";
 // import Task3_3 from "./pages/task3/task3";
 
+export const fpApi = signal<FullpageApi>(null);
+
 export function App() {
-  const sections = (state: any, fullpageApi: fullpageApi) => (
+  const fullpageApi = fpApi.value;
+  const sections = (state: any) => (
     <>
       <div className="section">
         <Title />
@@ -75,11 +78,13 @@ export function App() {
       loopHorizontal={false}
       dragAndMove={true}
       // debug={true}
-      render={({ state, fullpageApi }) => (
+      render={({ state, fullpageApi }) => {
+        fpApi.value = fullpageApi;
+        return (
         <ReactFullpage.Wrapper>
-          {sections(state, fullpageApi)}
+          {sections(state)}
         </ReactFullpage.Wrapper>
-      )}
+      )}}
     />
 
     // <LocationProvider>

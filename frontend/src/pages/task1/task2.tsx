@@ -142,7 +142,7 @@ export default () => {
       </div>
       <div class="content-div">
         <p>
-          In this visualization, we are presented with one gsets of images that
+          In this visualization, we are presented with one sets of images that
           compare 'Lower Level' features of music and noise. These
           representations help us explore the complexity of sounds and how they
           can be analyzed and differentiated by levels of abstraction.
@@ -228,8 +228,6 @@ export default () => {
           could represent the basic sound waves produced by an instrument or
           voice, showing variations in pitch and loudness but within a
           controlled and structured environment.
-        </p>
-        <p>
           The noise representation, however, appears more erratic, with an
           almost equal distribution of colors without any discernible pattern or
           order. This is indicative of the randomness of noise, where there is

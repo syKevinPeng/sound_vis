@@ -16,7 +16,7 @@ export default () => {
       .flat();
 
     const plot = Plot.plot({
-      title: "Music",
+      title: "Noise Low Level Features",
       // y: { grid: true },
       color: {
         scheme: "BuPu",
@@ -82,7 +82,7 @@ export default () => {
       .flat();
 
     const plot = Plot.plot({
-      title: "Noise",
+      title: "Music Low Level Features",
       // y: { grid: true },
       color: {
         scheme: "BuPu",

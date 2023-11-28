@@ -16,4 +16,6 @@ export default defineConfig({
   server: {
     host: true,
   },
+assetsInclude: [
+    "**/*.csv",]
 });

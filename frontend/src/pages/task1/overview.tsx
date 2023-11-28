@@ -12,11 +12,10 @@ const margin = { top: 10, right: 30, bottom: 30, left: 60 },
 
 
 export default memo(() => {
-  const d3Elem = useRef<HTMLDivElement>();
-  const [data, setData] = useState<[number, number][]>();
+  const svgRef = useRef();
 
   useEffect(() => {
-    const svg = d3.select("svg")
+    const svg = d3.select(svgRef.current)
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -163,7 +162,7 @@ d3.csv(musicFile).then(function (data) {
           inherent in music.
         </p>
         <div style="display:flex; flex-direction:column">
-        <svg width="960" height="500"></svg>
+        <svg ref={svgRef} width="960" height="500"></svg>
     <input type="range" id="timeSlider" min="0" max="100" value="100" />
         </div>
         <p>

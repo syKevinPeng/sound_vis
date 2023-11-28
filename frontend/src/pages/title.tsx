@@ -24,7 +24,7 @@ export default () => (
       <div style={{ fontSize: "xxx-large", textAlign: "center" }}>
         Music Viz
       </div>
-      <div style={{ alignSelf: "end" }}>BigO</div>
+      <div style={{ alignSelf: "end" }}>Siyuan Peng, Feng Gu, Roksana Khanom</div>
     </div>
     <video
       style={{

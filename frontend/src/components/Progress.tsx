@@ -19,7 +19,7 @@ export const allProgress = {
     link: "/task2/overview",
     sectionNum: sectionNum++,
   },
-  Task2_1: { text: "Task2_1", link: "/task2/1", sectionNum: sectionNum++ },
+  Task2_1: { text: "Spectral Contrast", link: "/task2/1", sectionNum: sectionNum++ },
   Task2_2: { text: "Task2_2", link: "/task2/2", sectionNum: sectionNum++ },
   // Task2_3: "Task2_3",
   Task3_0: {

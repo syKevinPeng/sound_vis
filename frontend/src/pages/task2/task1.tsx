@@ -14,14 +14,14 @@ export default () => {
       return;
 
     const plot = Plot.plot({
-      title: "Noise Low Level Features",
+      title: "Spectral Contrast Between Calm Music and Intense Music",
       // y: { grid: true },
       color: {
         scheme: "BuPu",
       },
       marks: [
-        Plot.lineY(dataCalm[0], { stroke: "#4e79a7" }),
-        Plot.lineY(dataIntense[0], { stroke: "#e15759" }),
+        Plot.lineY(dataCalm[0], { stroke: "#e15759" }),
+        Plot.lineY(dataIntense[0], { stroke: "#4e79a7" }),
       ],
     });
 

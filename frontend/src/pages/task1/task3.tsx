@@ -4,8 +4,8 @@ import { memo } from "preact/compat";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import * as d3 from "d3";
-import musicFile from "@/assets/csv/music.csv";
-import noiseFile from "@/assets/csv/noise.csv";
+import musicFile from "@/assets/csv/music.csv?url";
+import noiseFile from "@/assets/csv/noise.csv?url";
 
 
 export default memo(() => {
@@ -36,7 +36,7 @@ export default memo(() => {
         renderer.domElement
     );
 
-    console.log(all_data);
+    // console.log(all_data);
 
     // ---------- ----------
     // GEOMETRY - using the setFromPoints method to create one from points_array
@@ -106,7 +106,7 @@ useEffect(() => {    d3.csv(noiseFile).then(function (data) {
       renderer.domElement
   );
 
-  console.log(all_data);
+  // console.log(all_data);
 
   // ---------- ----------
   // GEOMETRY - using the setFromPoints method to create one from points_array

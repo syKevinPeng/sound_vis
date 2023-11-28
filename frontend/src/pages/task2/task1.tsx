@@ -8,8 +8,6 @@ export default () => {
   const [dataIntense, setDataIntense] = useState<number[][]>();
 
   useEffect(() => {
-    console.log(dataCalm, dataIntense, d3Elem.current);
-
     if (dataCalm == null || dataIntense == null || d3Elem.current == null)
       return;
 
@@ -78,7 +76,9 @@ export default () => {
           spectral contrast, or how much the intensity of sound varies at
           different frequencies.
         </p>
-        <div class="color-light sized-plot" ref={d3Elem} />
+        <div style={{ margin: "auto" }}>
+          <div class="color-light sized-plot" ref={d3Elem} />
+        </div>
         <p>
           The blue spikes represent intense music. Observe their towering
           presence, reaching high above the baseline, then plummeting to graze

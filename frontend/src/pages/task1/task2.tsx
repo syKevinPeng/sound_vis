@@ -146,6 +146,13 @@ export default () => {
           compare 'Lower Level' features of music and noise. These
           representations help us explore the complexity of sounds and how they
           can be analyzed and differentiated by levels of abstraction.
+
+          <blockquote>
+            <b>Lower Level Features</b> are the more granular, specific
+            properties of sound that can be measured and quantified. These
+            include amplitude, frequency, and other acoustic properties of
+            sound.
+          </blockquote>
         </p>
         <div
           class="color-light"
@@ -213,6 +220,24 @@ export default () => {
             reflecting its chaotic nature.
           </blockquote>
         </p>*/}
+          <p>
+          The mosaic representation of music has cooler colors with intermittent
+          bursts of warmer hues. This suggests a level of consistency with
+          occasional variations, akin to a musical composition with a steady
+          rhythm and occasional accents or harmonies. In music, these features
+          could represent the basic sound waves produced by an instrument or
+          voice, showing variations in pitch and loudness but within a
+          controlled and structured environment.
+        </p>
+        <p>
+          The noise representation, however, appears more erratic, with an
+          almost equal distribution of colors without any discernible pattern or
+          order. This is indicative of the randomness of noise, where there is
+          no intentional structuring of sound waves. In a noisy environment, the
+          sound waves from different sources collide and combine without any
+          synchronization, leading to a chaotic mix that lacks the organization
+          found in music.
+        </p> 
         <p>
           In essence, this interactive design allows us to see beyond what we
           can hear, providing a visual map to the unseen architecture of sound.

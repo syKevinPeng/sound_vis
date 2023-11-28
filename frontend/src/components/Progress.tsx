@@ -11,7 +11,7 @@ export const allProgress = {
     link: "/task1/overview",
     sectionNum: sectionNum++,
   },
-  Task1_1: { text: "Task1_1", link: "/task1/1", sectionNum: sectionNum++ },
+  Task1_1: { text: "Music Vs. Noise Spectrogram", link: "/task1/1", sectionNum: sectionNum++ },
   Task1_2: { text: "Low Level Feature", link: "/task1/2", sectionNum: sectionNum++ },
   Task1_3: { text: "Task1_3", link: "/task1/3", sectionNum: sectionNum++ },
   Task2_0: {
@@ -27,7 +27,7 @@ export const allProgress = {
     link: "/task3/overview",
     sectionNum: sectionNum++,
   },
-  Task3_1: { text: "Task3_1", link: "/task3/1", sectionNum: sectionNum++ },
+  Task3_1: { text: "Instrumental Visualization", link: "/task3/1", sectionNum: sectionNum++, pageName:"Instrumental Visualization" },
   // Task3_2: "Task3_2",
   // Task3_3: "Task3_3",
 };

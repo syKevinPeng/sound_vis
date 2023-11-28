@@ -116,7 +116,7 @@ header {
 }
 
 .content-div {
-  flex: 3;
+  flex: 4;
 
   margin: 2rem 0;
 
@@ -134,4 +134,14 @@ header {
 
 .color-light > * {
   color: var(--dark-text-color);
+}
+
+figure > h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.sized-plot {
+  width: 640px;
+  background-color: white;
 }

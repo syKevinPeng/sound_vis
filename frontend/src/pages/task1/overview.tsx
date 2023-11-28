@@ -1,42 +1,143 @@
 import Progress from "@/components/Progress";
+import * as d3 from "d3";
 
 import { memo } from "preact/compat";
 import { useEffect, useRef, useState } from "preact/hooks";
-import * as Plot from "@observablehq/plot";
+import musicFile from "@/assets/csv/music.csv";
+
+// Set the dimensions and margins of the graph
+const margin = { top: 10, right: 30, bottom: 30, left: 60 },
+    width = 960 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
 
 export default memo(() => {
-  const d3Elem = useRef<HTMLDivElement>();
-  const [data, setData] = useState<[number, number][]>();
+  const svgRef = useRef();
 
   useEffect(() => {
-    // console.log("data", data);
-    if (data == null) return;
-    // PLOT CODE
-    const plot = Plot.plot({
-      y: { grid: true },
-      // color: { scheme: "burd" },
-      marks: [Plot.ruleY([0]), Plot.line(data, { strokeWidth: 5 })],
-    });
-    plot.setAttribute("height", '300');
-    d3Elem.current.replaceChildren(plot);
-    return () => plot.remove();
-  }, [data, d3Elem.current]);
-  // getting data from backend. Right now, just use a placeholder
-  useEffect(() => {
-    fetch("/random/1000")
-      .then((r) => r.json())
-      .catch((reason) => {
-        console.error(reason);
-        return [
-          [0, 0],
-          [1, 1],
-          [2, 4],
-          [3, 2],
-          [4, 3],
-        ];
-      })
-      .then(setData);
-  }, [setData]);
+    const svg = d3.select(svgRef.current)
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  // Read the data
+d3.csv(musicFile).then(function (data) {
+  // Format the data
+  data.forEach(function (d) {
+      d.Time = +d.Time;
+      d.Amplitude = +d.Amplitude / 1000000000;
+  });
+
+  // Add X axis
+  const x = d3
+      .scaleLinear()
+      .domain(
+          d3.extent(data, function (d) {
+              return d.Time;
+          })
+      )
+      .range([0, width - 200]);
+  svg.append("g")
+      .attr("transform", `translate(0, ${height})`)
+      .call(d3.axisBottom(x));
+
+  // Add Y axis
+  const y = d3
+      .scaleLinear()
+      .domain([
+          d3.min(data, function (d) {
+              return +d.Amplitude;
+          }),
+          d3.max(data, function (d) {
+              return +d.Amplitude;
+          }),
+      ])
+      .range([height, 0]);
+  svg.append("g").call(d3.axisLeft(y));
+
+  // add y axis label
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left + 5)
+      .attr("x", 0 - height / 2)
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("amplitude");
+  // add x axis label
+  svg.append("text")
+      .attr(
+          "transform",
+          `translate(${width / 2}, ${height + margin.top + 20})`
+      )
+      .style("text-anchor", "middle")
+      .text("time");
+
+  const line = svg.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 1.5)
+      .attr("d", d3.line()
+          .x(function (d) { return x(d.Time) })
+          .y(function (d) { return y(d.Amplitude) })
+      );
+
+  const sliderWidth = "width: " + width + "px;";
+
+  const slider = d3
+      .select("#timeSlider")
+      .attr("style", sliderWidth)
+      .attr("min", 0)
+      .attr("max", data.length - 1)
+      .attr("value", data.length - 1)
+      .on("input", function () {
+          const timeIndex = +this.value;
+          const newData = data.slice(0, timeIndex);
+
+          // Update the line with new data
+          line.datum(newData).attr(
+              "d",
+              d3.line()
+                  .x(function (d) {
+                      return x(d.Time);
+                  })
+                  .y(function (d) {
+                      return y(d.Amplitude);
+                  })
+          );
+
+          // Update the current amplitude line
+          currentAmplitude
+              .attr("x1", x(data[timeIndex].Time))
+              .attr("y1", y(data[timeIndex].Amplitude))
+              .attr("y2", y(data[timeIndex].Amplitude));
+
+          // Update the current amplitude text
+          currentAmplitudeText.text(
+              `Amplitude: ${data[timeIndex].Amplitude.toFixed(2)}`
+          ).attr("y", y(data[timeIndex].Amplitude) - 10);
+      });
+
+  // add a line to indicate current amplitude and text to indicate amplitude
+  const currentAmplitude = svg.append("line")
+      .attr("x1", 0)
+      .attr("y1", y(0))
+      .attr("x2", width)
+      .attr("y2", y(0))
+      .attr("stroke-width", 1)
+      .attr("stroke", "red");
+
+  const currentAmplitudeText = svg.append("text")
+      .attr("x", width - 100)
+      .attr("y", y(0) - 10)
+      .attr("fill", "red")
+      .text("Amplitude: ");
+      
+});
+
+  }, []);
+
 
   return (
     <div class="content">
@@ -60,7 +161,10 @@ export default memo(() => {
           and undesired, generally lacking the intentionality and organization
           inherent in music.
         </p>
-        <div class="color-light" ref={d3Elem} />
+        <div style="display:flex; flex-direction:column">
+        <svg ref={svgRef} width="960" height="500"></svg>
+    <input type="range" id="timeSlider" min="0" max="100" value="100" />
+        </div>
         <p>
           Yet, the demarcation between music and noise is not absolute; it is
           influenced by individual and cultural subjectivities. The patter of

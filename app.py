@@ -35,9 +35,9 @@ def random(n: int = 1000):
     return jsonify(arr)
 
 
-@app.get("/sound-feature")
-def sound_feature():
-    np_file = Path(__file__).parent / "deep_model" / "feature_maps.npy"
+@app.get("/sound-feature/<string:type>")
+def sound_feature(type:str):
+    np_file = Path(__file__).parent / "deep_model" / f"feature_maps_1_2_{type}.npy"
     etag = '"' + sha384(np_file.read_bytes()).hexdigest() + '"'
     # print("1", request.headers.get("If-None-Match"))
     # print("2", etag)

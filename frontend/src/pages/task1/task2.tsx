@@ -3,13 +3,13 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import * as Plot from "@observablehq/plot";
 
 export default () => {
-  const d3Elem = useRef<HTMLDivElement>();
-  const [data, setData] = useState<[number, number][][]>();
+  const d3ElemMusic = useRef<HTMLDivElement>();
+  const [dataMusic, setDataMusic] = useState<[number, number][][]>();
 
   useEffect(() => {
-    if (data == null || d3Elem.current == null) return;
+    if (dataMusic == null || d3ElemMusic.current == null) return;
 
-    const data_obj = data[0]
+    const data_obj = dataMusic[0]
       .map((row, rowIdx) =>
         row.map((x, colIdx) => ({ x: rowIdx, y: colIdx, fill: x }))
       )
@@ -30,12 +30,12 @@ export default () => {
     });
 
     plot.removeAttribute("height");
-    d3Elem.current.replaceChildren(plot);
+    d3ElemMusic.current.replaceChildren(plot);
     return () => plot.remove();
-  }, [data, d3Elem.current]);
+  }, [dataMusic, d3ElemMusic.current]);
 
   useEffect(() => {
-    fetch("/sound-feature")
+    fetch("/sound-feature/music")
       .then((r) => r.json())
       .catch((reason) => {
         console.error(reason);
@@ -49,8 +49,94 @@ export default () => {
           ],
         ];
       })
-      .then(setData);
-  }, [setData]);
+      .then(setDataMusic);
+  }, [setDataMusic]);
+
+
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
+
+
+
+  const d3ElemNoise = useRef<HTMLDivElement>();
+  const [dataNoise, setDataNoise] = useState<[number, number][][]>();
+
+  useEffect(() => {
+    if (dataNoise == null || d3ElemNoise.current == null) return;
+
+    const data_obj = dataNoise[0]
+      .map((row, rowIdx) =>
+        row.map((x, colIdx) => ({ x: rowIdx, y: colIdx, fill: x }))
+      )
+      .flat();
+
+    const plot = Plot.plot({
+      // y: { grid: true },
+      color: {
+        scheme: "BuPu",
+      },
+      marks: [
+        Plot.cell(data_obj, {
+          x: "x",
+          y: "y",
+          fill: "fill",
+        }),
+      ],
+    });
+
+    plot.removeAttribute("height");
+    d3ElemNoise.current.replaceChildren(plot);
+    return () => plot.remove();
+  }, [dataNoise, d3ElemNoise.current]);
+
+  useEffect(() => {
+    fetch("/sound-feature/noise")
+      .then((r) => r.json())
+      .catch((reason) => {
+        console.error(reason);
+        return [
+          [
+            [0, 0],
+            [1, 1],
+            [2, 4],
+            [3, 2],
+            [4, 3],
+          ],
+        ];
+      })
+      .then(setDataNoise);
+  }, [setDataNoise]);
+
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 
   return (
     <div class="content">
@@ -60,11 +146,14 @@ export default () => {
       <div class="content-div">
         <p>
           In this visualization, we are presented with one gsets of images that
-          compare 'Lower Level' features of music and noise.
-          These representations help us explore the complexity of sounds and how
-          they can be analyzed and differentiated by levels of abstraction.
+          compare 'Lower Level' features of music and noise. These
+          representations help us explore the complexity of sounds and how they
+          can be analyzed and differentiated by levels of abstraction.
         </p>
-        <div class="color-light" ref={d3Elem} />
+        <div style={{ display: "flex" }}>
+          <div class="color-light" style={{ flex: 1 }} ref={d3ElemMusic} />
+          <div class="color-light" style={{ flex: 1 }} ref={d3ElemNoise} />
+        </div>
         {/* <p>
           Lower Level Feature Comparison: We use a trained neural network to
           convert lower level music features into mosaic images. The lower level

@@ -33,7 +33,7 @@ export default memo(
           <h1>
             At the heart of our inquiry lies three pivotal tasks:
             <div class="divide-3">
-              <div onClick={to1}>Music Vs. Nosie</div>
+              <div onClick={to1}>Music Vs. Noise</div>
               <div onClick={to2}>Valence Vs. Arousal</div>
               <div onClick={to3}>Instrumental music</div>
             </div>

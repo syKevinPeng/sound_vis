@@ -136,7 +136,12 @@ header {
   color: var(--dark-text-color);
 }
 
-figure > h2{
+figure > h2 {
   display: flex;
   justify-content: center;
+}
+
+.sized-plot {
+  width: 640px;
+  background-color: white;
 }
